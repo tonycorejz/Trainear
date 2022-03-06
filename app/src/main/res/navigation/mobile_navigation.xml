@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.trainear.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.trainear.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_upr_list_fragment"
+            app:destination="@id/upr_list_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upr_list_fragment"
+        android:name="com.example.trainear.ui.dashboard.UprListFragment"
+        android:label="@string/title_dashboard">
+        <action
+            android:id="@+id/action_upr_list_fragment_to_uprListChild"
+            app:destination="@id/uprListChild" />
+        <action
+            android:id="@+id/action_upr_list_fragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_upr_list_fragment_to_uprListChild2"
+            app:destination="@id/uprListChild" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.trainear.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/uprListChild"
+        android:name="com.example.trainear.ui.dashboard.UprListChild"
+        android:label="@string/title_dashboard">
+        <action
+            android:id="@+id/action_uprListChild_to_upr_list_fragment"
+            app:destination="@id/upr_list_fragment" />
+        <argument
+            android:name="currentDirection"
+            app:argType="com.example.trainear.data.Direction[]" />
+        <action
+            android:id="@+id/action_uprListChild_to_uprAllListFragmentFragment"
+            app:destination="@id/uprAllListFragmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uprAllListFragmentFragment"
+        android:name="com.example.trainear.ui.dashboard.UprAllListFragmentFragment"
+        android:label="@string/title_dashboard">
+        <action
+            android:id="@+id/action_uprAllListFragmentFragment_to_uprListChild"
+            app:destination="@id/uprListChild" />
+        <argument
+            android:name="curentDirection"
+            app:argType="com.example.trainear.data.Direction" />
+        <action
+            android:id="@+id/action_uprAllListFragmentFragment_to_uprTemplateFragment"
+            app:destination="@id/uprTemplateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uprTemplateFragment"
+        android:name="com.example.trainear.ui.dashboard.UprTemplateFragment"
+        android:label="UprTemplateFragment" >
+        <action
+            android:id="@+id/action_uprTemplateFragment_to_uprAllListFragmentFragment"
+            app:destination="@id/uprAllListFragmentFragment" />
+        <argument
+            android:name="currentExercise"
+            app:argType="com.example.trainear.data.Exercise" />
+    </fragment>
+</navigation>

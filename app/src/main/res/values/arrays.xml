@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="uprazhneniya_categories">
+        <item>Спина и шея</item>
+        <item>Ягодицы</item>
+        <item>Пресс и косые</item>
+        <item>Плечи</item>
+        <item>Руки</item>
+        <item>Грудь</item>
+        <item>Ноги</item>
+    </string-array>
+</resources>
